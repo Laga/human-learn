@@ -157,7 +157,7 @@ class SingleInteractiveChart:
             width=width, height=height, tooltips=self.tooltips, title=f"{x} vs. {y}"
         )
         self.color_column = labels if isinstance(labels, str) else color
-        self._colors = ["red", "blue", "green", "purple", "cyan"]
+        self._colors = ["red", "blue", "green", "purple", "cyan", "yellow"]
         self.legend = legend
 
         if isinstance(labels, str):
@@ -175,8 +175,8 @@ class SingleInteractiveChart:
             self.source = ColumnDataSource(data=dataf)
             self.labels = labels
 
-        if len(self.labels) > 5:
-            raise ValueError("We currently only allow for 5 classes max.")
+        if len(self.labels) > 6:
+            raise ValueError("We currently only allow for 6 classes max.")
         self.plot.circle(
             x=x, y=y, color="color", source=self.source, size=size, alpha=alpha
         )
